@@ -36,7 +36,8 @@ app.get('/decode-token', (req, res) => {
     }
 
     const authHeader = req.headers.authorization;
-    const token = authHeader.split(' ')[1];
+    const splittedStr = authHeader.split(' ');
+    const token = splittedStr[1];
 
     jwt.verify(token, secret, (err, decodedToken) => {
         if (err) {
